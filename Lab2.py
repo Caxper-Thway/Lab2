@@ -22,6 +22,8 @@ def main():
     print ("Max is " + str(int(max_min_list[0])))
     print ("Min is " + str(int(max_min_list[1])))
 
+    median = calc_median(num_list)
+    print("Median: " + str(median))
 
 def calculate_bmi(height, weight):
     print("Height = " + str(height))
@@ -66,9 +68,23 @@ def calc_min_max_temperature(list):
 
     return max_min_list
 
-   
+def calc_median(list):
 
+    sorted_list = sorted(list)
+    length = len(sorted_list)
 
+    if length % 2 == 0:
+        mid1 = sorted_list // 2
+        mid2 = sorted_list // 2 - 1
+
+        median = (mid1 + mid2) / 2
+    
+    else:
+
+        mid = length // 2 
+        median = sorted_list[mid]
+
+    return median
 
 if __name__ == "__main__":
     main()
